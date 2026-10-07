@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Happy Birthday My Friend ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e44ad);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Opening Screen */
+        .opening {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .opening-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 45px 30px;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+
+        .opening h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .opening p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            background: white;
+            color: #e84393;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* Main Content */
+        #mainContent {
+            display: none;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .birthday-title {
+            font-size: 55px;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        .friend-name {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .typing {
+            font-size: 22px;
+            min-height: 35px;
+            margin-bottom: 40px;
+        }
+
+        /* Message Card */
+        .card {
+            max-width: 850px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Memories */
+        .memories {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .memories h2 {
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: 0.4s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Surprise */
+        .surprise {
+            margin: 60px auto;
+        }
+
+        #surpriseMessage {
+            display: none;
+            max-width: 700px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 25px;
+            font-size: 21px;
+            line-height: 1.8;
+        }
+
+        /* Balloons */
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+            font-size: 55px;
+            animation: fly 8s linear infinite;
+            pointer-events: none;
+        }
+
+        .b1 {
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .b2 {
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .b3 {
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        .b4 {
+            left: 75%;
+            animation-delay: 1s;
+        }
+
+        .b5 {
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-120vh);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Hearts */
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            animation: heartMove 6s linear infinite;
+            pointer-events: none;
+            font-size: 25px;
+        }
+
+        @keyframes heartMove {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .opening h1 {
+                font-size: 35px;
+            }
+
+            .birthday-title {
+                font-size: 38px;
+            }
+
+            .friend-name {
+                font-size: 32px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 280px;
+            }
+
+            .card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Balloons -->
+    <div class="balloon b1">🎈</div>
+    <div class="balloon b2">🎈</div>
+    <div class="balloon b3">🎈</div>
+    <div class="balloon b4">🎈</div>
+    <div class="balloon b5">🎈</div>
+
+    <!-- Opening -->
+    <section class="opening" id="opening">
+
+        <div class="opening-box">
+
+            <h1>🎁 A Special Surprise 🎁</h1>
+
+            <p>
+                Hey My Special ❤️
+            </p>
+
+            <p>
+                Something beautiful is waiting for you...
+            </p>
+
+            <button class="btn" onclick="openBirthday()">
+                Open Your Surprise 💖
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Website -->
+    <section id="mainContent">
+
+        <h1 class="birthday-title">
+            🎂 HAPPY BIRTHDAY 🎂
+        </h1>
+
+        <h2 class="friend-name">
+            My Dear Friend ❤️
+        </h2>
+
+        <div class="typing" id="typingText"></div>
+
+
+        <!-- Birthday Message -->
+        <div class="card">
+
+            <h2>💌 A Little Message For You</h2>
+
+            <p>
+                Some people come into our lives and slowly become a very
+                special part of our journey. You are one of those people
+                for me. ❤️
+            </p>
+
+            <br>
+
+            <p>
+                Happy Birthday, my love! ❤️🎂 You are one of the most beautiful parts of my life, and I feel so lucky to
+                have you. You bring so much happiness, love, and peace into my world. 🥹❤️
+            </p>
+
+            <br>
+
+            <p>
+                I always smile when I think about our happiest memories—the silly talks, endless laughs, late-night
+                conversations, little fights, and all those simple moments that became so special just because they were
+                with you. 🫶🏻✨
+            </p>
+
+            <br>
+
+            <p>
+                Every moment spent with you is a memory I want to keep forever. From our first moments together to all
+                the crazy and beautiful things we have shared, everything has a special place in my heart. ❤️🥺
+            </p>
+            <br>
+            <p>
+                On your special day, I just wish you endless happiness, success, good health, and all the love you
+                deserve. I hope this new year of your life brings you everything your heart wishes for. 🎂✨
+            </p>
+            <br>
+            <p>
+                Happy Birthday once again, baby! ❤️ I hope we keep creating the happiest memories together and
+                celebrating many more birthdays side by side. I love you so much, today and always. 🥹❤️🫂🎀
+            </p>
+
+        </div>
+
+
+        <!-- Memories -->
+        <div class="memories">
+
+            <h2>📸 Our Beautiful Memories</h2>
+
+            <div class="gallery">
+
+                <!-- Replace these image URLs with your photos -->
+
+
+
+                <img src="images/memories2.jpeg" alt="Friends">
+                <img src="images/memories2.jpeg" alt="Friends">
+
+                <img src="images/memories3.jpeg" alt="Memories">
+
+            </div>
+
+        </div>
+
+
+        <!-- Surprise -->
+        <div class="surprise">
+
+            <button class="btn" onclick="showSurprise()">
+                🎁 One Last Surprise
+            </button>
+
+            <div id="surpriseMessage">
+
+                💖 <strong>One Last Message For You</strong> 💖
+
+                <br><br>
+
+                No matter where life takes us, I hope our friendship
+                always stays special.
+
+                <br><br>
+
+                We will make many more crazy memories,
+                laugh at stupid things and enjoy every little moment.
+
+                <br><br>
+
+                Here's to another amazing year of your life! 🥂
+
+                <br><br>
+
+                🎂 HAPPY BIRTHDAY ONCE AGAIN! 🎂
+
+                <br>
+
+                ❤️ Stay Happy • Stay Blessed • Keep Smiling ❤️
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /* Open Birthday */
+        function openBirthday() {
+
+            document.getElementById("opening").style.display = "none";
+
+            document.getElementById("mainContent").style.display = "block";
+
+            typeMessage();
+
+            createHearts();
+
+            createConfetti();
+
+        }
+
+
+        /* Typing Animation */
+
+        const message =
+            "Wishing you a day filled with happiness, laughter and unforgettable memories! ❤️";
+
+        let index = 0;
+
+        function typeMessage() {
+
+            if (index < message.length) {
+
+                document.getElementById("typingText").innerHTML +=
+                    message.charAt(index);
+
+                index++;
+
+                setTimeout(typeMessage, 60);
+
+            }
+
+        }
+
+
+        /* Surprise Button */
+
+        function showSurprise() {
+
+            const surprise =
+                document.getElementById("surpriseMessage");
+
+            surprise.style.display = "block";
+
+            createConfetti();
+
+        }
+
+
+        /* Hearts */
+
+        function createHearts() {
+
+            setInterval(() => {
+
+                const heart = document.createElement("div");
+
+                heart.classList.add("heart");
+
+                heart.innerHTML = "❤️";
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.animationDuration =
+                    (Math.random() * 3 + 4) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+
+            }, 600);
+
+        }
+
+
+        /* Confetti */
+
+        function createConfetti() {
+
+            for (let i = 0; i < 80; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti.innerHTML = "🎉";
+
+                confetti.style.position = "fixed";
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                confetti.style.top =
+                    Math.random() * 100 + "vh";
+
+                confetti.style.fontSize =
+                    (Math.random() * 20 + 10) + "px";
+
+                confetti.style.zIndex = "9999";
+
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 2500);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
